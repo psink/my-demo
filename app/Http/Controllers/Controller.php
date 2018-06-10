@@ -34,6 +34,11 @@ class Controller extends BaseController
         return $data;
     }
 
+    public function deleteUsers($id){
+        return DB::table('student')->where('id', $id)->delete();
+
+    }
+
     public function showall(){
     	$data = db::table('student')-> select('lastname')->get();
     	return view('login', ['name' => $data]);

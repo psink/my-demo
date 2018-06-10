@@ -18,7 +18,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 route::get('iam/a','controller@view');
 
+//---------------Users Module-------------------
+
 route::post('/insert','controller@register');
 
 Route::get('/users','controller@getUsers');
 
+route::post('/deleteUsers/{id}','controller@deleteUsers');
+
+
+// -------------------College Module------------------
