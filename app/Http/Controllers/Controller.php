@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use DB;
+use Illuminate\Http\request;
+
+class Controller extends BaseController
+{
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function view(){
+    	return 'wkdhaskdhkj';
+
+    }
+    public function register(request $req){
+    	$name = $req->input('firstname');
+    	$lname = $req->input('lastname');
+    	$grade = $req->input('grade');
+    	$faculty = $req->input('faculty');
+    	$rollno = $req->input('rollno');
+    	$mobno = $req->input('mobileno');
+
+    	$data = array('firstname'=>$name, 'lastname'=>$lname, 'grade'=>$grade, 'faculty'=>$faculty, 'rollno'=>$rollno, 'mobileno'=>$mobno);
+    	db::table('student')->insert($data);
+    	return "sucess";
+    }
+    public function showall(){
+    	$data = db::table('student')-> select('lastname')->get();
+    	return view('login', ['name' => $data]);
+    }
+}
