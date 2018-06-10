@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 route::get('iam/a','controller@view');
 
 route::post('/insert','controller@register');
+
+Route::get('/users','controller@getUsers');
+

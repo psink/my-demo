@@ -19,8 +19,9 @@ Route::get('user/{id}', function ($id) {
 });
 route::get('foo','controller@view');
 Route::get('greeting','controller@showall');
-route::post('/insert','controller@register');
+
 Route::get('/go', function () {
      $users = DB::table('student')->get();
      return view('login',['name'=>$users]);
 });
+

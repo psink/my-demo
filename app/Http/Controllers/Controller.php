@@ -12,7 +12,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function view(){
-    	return 'wkdhaskdhkj';
+    	echo 'wkdhaskdhkj';
 
     }
     public function register(request $req){
@@ -27,6 +27,13 @@ class Controller extends BaseController
     	db::table('student')->insert($data);
     	return "sucess";
     }
+
+        // Returns List of Users
+    public function getUsers(){
+        $data = db::table('student')->get();
+        return $data;
+    }
+
     public function showall(){
     	$data = db::table('student')-> select('lastname')->get();
     	return view('login', ['name' => $data]);
